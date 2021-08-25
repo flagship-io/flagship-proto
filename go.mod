@@ -1,4 +1,4 @@
-module github.com/flagship.io/flagship-proto
+module github.com/flagship-io/flagship-proto
 
 go 1.15
 
