@@ -1,0 +1,74 @@
+syntax = "proto3";
+package canarybay.protobuf;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "gitlab.com/canarybay/protobuf/ptypes.git/targeting";
+option java_package = "com.canarybay.protobuf";
+option java_outer_classname = "TargetingProto";
+option java_multiple_files = true;
+option php_namespace = "CanaryBay\\PTypes";
+option php_metadata_namespace = "CanaryBay\\PTypes\\GPBMetada";
+
+message Targeting {
+
+    enum TargetingOperator {
+        NULL = 0;
+        LOWER_THAN = 1;
+        GREATER_THAN_OR_EQUALS = 2;
+        LOWER_THAN_OR_EQUALS = 3;
+        EQUALS = 4;
+        NOT_EQUALS = 5;
+        STARTS_WITH = 6;
+        ENDS_WITH = 7;
+        CONTAINS = 8;
+        NOT_CONTAINS = 9;
+        GREATER_THAN = 10;
+    }
+
+    message InnerTargeting {
+        
+        /**
+        * targeting operator
+        *
+        * Required
+        *
+        * The operator for the targeting
+        */
+        TargetingOperator operator = 1;
+
+        /**
+        * key
+        *
+        * Required
+        *
+        * The targeting key for the context
+        */
+        google.protobuf.StringValue key = 2;
+
+        /**
+        * value
+        *
+        * Required
+        *
+        * The targeting value
+        */
+        google.protobuf.Value value = 3;
+    }
+
+
+    message TargetingGroup {        
+
+        /**
+        * visitor ID
+        *
+        * Required
+        *
+        * The custom or decision generated visitor ID. 
+        */
+        repeated InnerTargeting targetings = 1;
+    }
+
+    repeated TargetingGroup targeting_groups = 1;
+}

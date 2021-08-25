@@ -1,0 +1,298 @@
+syntax = "proto3";
+package canarybay.protobuf;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "gitlab.com/canarybay/protobuf/ptypes.git/decision_response";
+option java_package = "com.canarybay.protobuf";
+option java_outer_classname = "DecisionResponseProto";
+option java_multiple_files = true;
+option php_namespace = "CanaryBay\\PTypes";
+option php_metadata_namespace = "CanaryBay\\PTypes\\GPBMetada";
+
+
+message CampaignIdVariationId {
+    /**
+    * campaign id
+    *
+    * Required
+    *
+    * The campaign id
+    */
+    string campaign_id = 1;
+
+    /**
+    * variation id
+    *
+    * Required
+    *
+    * The variation id
+    */
+    string variation_id = 2;
+}
+
+enum ModificationsType {
+    NULL = 0;
+    JSON = 1;
+    TEXT = 2;
+    IMAGE = 3;
+    HTML = 4;
+    FLAG = 5;
+    REDIRECT = 6;
+    TURING_ENGINE = 7;
+}
+
+message Modifications {
+    /**
+    * modification type
+    *
+    * Required
+    *
+    * The type of the modification of the variation
+    */
+    ModificationsType type = 1;
+
+    /**
+    * value
+    *
+    * Required
+    *
+    * The modifications value in json
+    */
+    google.protobuf.Struct value = 2;
+}
+
+message TuringEngineOptions {
+    /**
+   * Turing engine Context
+   *
+   * Required
+   *
+   * The context key(s) sent to turing engine
+   */
+    map<string, string> context_keys= 1;
+}
+
+message Variation {
+    /**
+    * variation ID
+    *
+    * Required
+    *
+    * The ID of the variation the visitor is affected to
+    */
+    google.protobuf.StringValue id = 1;
+
+    /**
+    * modifications
+    *
+    * Required
+    *
+    * The modifications field for the variation
+    */
+    Modifications modifications = 2;
+
+    /**
+    * is reference
+    *
+    * Optional
+    *
+    * True if variation is reference
+    */
+    bool reference = 3;
+}
+
+message FullVariation {
+    /**
+    * variation ID
+    *
+    * Required
+    *
+    * The ID of the variation the visitor is affected to
+    */
+    google.protobuf.StringValue id = 1;
+
+    /**
+    * modifications
+    *
+    * Required
+    *
+    * The modifications field for the variation
+    */
+    Modifications modifications = 2;
+
+    /**
+    * Turing engine Options
+    *
+    * Optional
+    *
+    * The turing engine options
+    */
+    TuringEngineOptions te_options = 3;
+
+    /**
+     * Allocation
+     *
+     * Optional
+     *
+     * The allocation
+     */
+    int32 allocation = 4;
+
+    /**
+    * is reference
+    *
+    * Optional
+    *
+    * True if variation is reference
+    */
+    bool reference = 5;
+}
+
+message Campaign {
+    /**
+    * campaign ID
+    *
+    * Required
+    *
+    * The ID of the campaign the visitor is affected to
+    */
+    google.protobuf.StringValue id = 1;
+
+    /**
+    * variation group ID
+    *
+    * Required
+    *
+    * The ID of the variation group the visitor is affected to
+    */
+    google.protobuf.StringValue variation_group_id = 2;
+
+    /**
+    * variation
+    *
+    * Required
+    *
+    * The variation info the visitor is affected to
+    */
+    Variation variation = 3;
+}
+
+message DecisionResponse {
+    /**
+    * visitor ID
+    *
+    * Required
+    *
+    * The custom or decision generated visitor ID. 
+    */
+    google.protobuf.StringValue visitor_id = 1;
+
+    /**
+    * decision group
+    *
+    * Optional
+    *
+    * The custom visitor group
+    */
+    repeated Campaign campaigns = 2;
+}
+
+message DecisionResponsePanic {
+    /**
+    * visitor ID
+    *
+    * Required
+    *
+    * The custom or decision generated visitor ID. 
+    */
+    google.protobuf.StringValue visitor_id = 1;
+
+    /**
+    * decision group
+    *
+    * Optional
+    *
+    * The custom visitor group
+    */
+    repeated Campaign campaigns = 2;
+
+    /**
+    * panic
+    *
+    * Optional
+    *
+    * True if panic mode is set for the account environment
+    */
+    bool panic = 3;
+}
+
+message DecisionResponseFull {
+    /**
+    * visitor ID
+    *
+    * Required
+    *
+    * The custom or decision generated visitor ID. 
+    */
+    google.protobuf.StringValue visitor_id = 1;
+
+    /**
+    * decision group
+    *
+    * Optional
+    *
+    * The custom visitor group
+    */
+    repeated Campaign campaigns = 2;
+
+    /**
+    * campaigns_variation
+    *
+    * Optional
+    *
+    * An array of all the campaign and associated variation id 
+    */
+    repeated CampaignIdVariationId campaigns_variation = 3;
+
+    /**
+    * merged_modifications
+    *
+    * Optional
+    *
+    * The merged modifications for all the campaigns
+    */
+    google.protobuf.Struct merged_modifications = 4;
+
+    /**
+    * panic
+    *
+    * Optional
+    *
+    * True if panic mode is set for the account environment
+    */
+    bool panic = 5;
+}
+
+message DecisionResponseSimple {
+
+    /**
+    * campaigns_variation
+    *
+    * Optional
+    *
+    * An array of all the campaign and associated variation id 
+    */
+    repeated CampaignIdVariationId campaigns_variation = 1;
+
+    /**
+    * merged_modifications
+    *
+    * Optional
+    *
+    * The merged modifications for all the campaigns
+    */
+    google.protobuf.Struct merged_modifications = 2;
+}
+
