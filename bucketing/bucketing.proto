@@ -1,0 +1,39 @@
+syntax = "proto3";
+package canarybay.protobuf;
+
+import "decision_response/decision_response.proto";
+import "targeting/targeting.proto";
+
+option go_package = "gitlab.com/canarybay/protobuf/ptypes.git/bucketing";
+option java_package = "com.canarybay.protobuf";
+option java_outer_classname = "BucketingProto";
+option java_multiple_files = true;
+option php_namespace = "CanaryBay\\PTypes";
+option php_metadata_namespace = "CanaryBay\\PTypes\\GPBMetada";
+
+message Bucketing {
+    message BucketingResponse {
+        string generated_at = 1;
+        bool visitor_consolidation = 2;
+        bool panic = 3;
+        repeated BucketingCampaign campaigns = 4;
+    }
+
+    message BucketingCampaign {
+        string id = 1;
+        string custom_id = 2;
+        string type = 3;
+        repeated BucketingVariationGroups variation_groups = 4;
+    }
+
+    message BucketingVariationGroups {
+        string id = 1;
+        Targeting targeting = 2;
+        repeated canarybay.protobuf.FullVariation variations = 3;
+    }
+
+    message BucketingUpdateRequest {
+        string environment_id = 1;
+        string requested_at = 2;
+    }
+}
