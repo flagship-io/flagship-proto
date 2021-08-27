@@ -1,15 +1,10 @@
 syntax = "proto3";
-package canarybay.protobuf;
+package flagship.protobuf;
 
 import "decision_response/decision_response.proto";
 import "targeting/targeting.proto";
 
-option go_package = "gitlab.com/canarybay/protobuf/ptypes.git/bucketing";
-option java_package = "com.canarybay.protobuf";
-option java_outer_classname = "BucketingProto";
-option java_multiple_files = true;
-option php_namespace = "CanaryBay\\PTypes";
-option php_metadata_namespace = "CanaryBay\\PTypes\\GPBMetada";
+option go_package = "github.com/flagship-io/flagship-proto/bucketing";
 
 message Bucketing {
     message BucketingResponse {
@@ -29,7 +24,7 @@ message Bucketing {
     message BucketingVariationGroups {
         string id = 1;
         Targeting targeting = 2;
-        repeated canarybay.protobuf.FullVariation variations = 3;
+        repeated flagship.protobuf.FullVariation variations = 3;
     }
 
     message BucketingUpdateRequest {

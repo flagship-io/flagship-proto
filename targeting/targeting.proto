@@ -1,15 +1,10 @@
 syntax = "proto3";
-package canarybay.protobuf;
+package flagship.protobuf;
 
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/struct.proto";
 
-option go_package = "gitlab.com/canarybay/protobuf/ptypes.git/targeting";
-option java_package = "com.canarybay.protobuf";
-option java_outer_classname = "TargetingProto";
-option java_multiple_files = true;
-option php_namespace = "CanaryBay\\PTypes";
-option php_metadata_namespace = "CanaryBay\\PTypes\\GPBMetada";
+option go_package = "github.com/flagship-io/flagship-proto/targeting";
 
 message Targeting {
 
