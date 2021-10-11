@@ -12,6 +12,7 @@ message Bucketing {
         bool visitor_consolidation = 2;
         bool panic = 3;
         repeated BucketingCampaign campaigns = 4;
+        AccountSettings accountSettings = 5;
     }
 
     message BucketingCampaign {

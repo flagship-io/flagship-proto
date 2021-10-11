@@ -182,7 +182,7 @@ message AccountSettings {
     *
     * True if experience continuity is activated in account settings
     */
-    google.protobuf.BoolValue enabledXPX = 1;
+    bool enabledXPX = 1;
 
     /**
     * One visitor one test
@@ -191,7 +191,7 @@ message AccountSettings {
     *
     * True if one visitor one test is activated in account settings
     */
-    google.protobuf.BoolValue enabled1V1T = 2;
+    bool enabled1V1T = 2;
 }
 
 message DecisionResponse {
