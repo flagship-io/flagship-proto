@@ -174,6 +174,26 @@ message Campaign {
     Variation variation = 3;
 }
 
+message AccountSettings {
+    /**
+    * Experience continuity
+    * 
+    * Required
+    *
+    * True if experience continuity is activated in account settings
+    */
+    google.protobuf.BoolValue enabledXPX = 1;
+
+    /**
+    * One visitor one test
+    * 
+    * Required
+    *
+    * True if one visitor one test is activated in account settings
+    */
+    google.protobuf.BoolValue enabled1V1T = 2;
+}
+
 message DecisionResponse {
     /**
     * visitor ID
@@ -192,6 +212,15 @@ message DecisionResponse {
     * The custom visitor group
     */
     repeated Campaign campaigns = 2;
+
+    /**
+    * account settings
+    *
+    * Optional
+    *
+    * Account settings enabled and activated in the platform
+    */
+    AccountSettings accountSettings = 3;
 }
 
 message DecisionResponsePanic {
