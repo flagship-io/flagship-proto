@@ -8,7 +8,7 @@ update_proto() {
     proto_dir_clean=${1%/}
     echo building $proto_dir_clean go files
     docker run --rm -v $(pwd):$(pwd) -w $(pwd) \
-            znly/protoc:$protoctag \
+            namely/protoc \
             --go_out=$GOPATH/src/ \
             -I$GOPATH/src/ \
             -I. $proto_dir_clean/$proto_dir_clean.proto
