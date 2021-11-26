@@ -1,4 +1,4 @@
-# Flagship common protobug types
+# Flagship common protobuf types
 
 ## Golang Compilation
 
