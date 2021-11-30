@@ -3,6 +3,7 @@ package flagship.protobuf;
 
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/struct.proto";
+import "google/protobuf/any.proto";
 
 option go_package = "github.com/flagship-io/flagship-proto/decision_response";
 
@@ -207,20 +208,20 @@ message DecisionResponse {
     /**
     * decision group
     *
-    * Optional
+    * Required
     *
     * The custom visitor group
     */
     repeated Campaign campaigns = 2;
 
     /**
-    * account settings
+    * extras
     *
     * Optional
     *
-    * Account settings enabled and activated in the platform
+    * Extra infromation sent to decision api
     */
-    AccountSettings accountSettings = 3;
+    map<string, google.protobuf.Any> extras = 3;
 }
 
 message DecisionResponsePanic {
@@ -290,13 +291,13 @@ message DecisionResponseFull {
     google.protobuf.Struct merged_modifications = 4;
 
     /**
-    * panic
+    * extras
     *
     * Optional
     *
-    * True if panic mode is set for the account environment
+    * Extra infromation sent to decision api
     */
-    bool panic = 5;
+    map<string, google.protobuf.Any> extras = 5;
 }
 
 message DecisionResponseSimple {
@@ -318,5 +319,14 @@ message DecisionResponseSimple {
     * The merged modifications for all the campaigns
     */
     google.protobuf.Struct merged_modifications = 2;
+
+    /**
+    * extras
+    *
+    * Optional
+    *
+    * Extra infromation sent to decision api
+    */
+    map<string, google.protobuf.Any> extras = 3;
 }
 
