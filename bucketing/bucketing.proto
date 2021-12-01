@@ -23,7 +23,7 @@ message Bucketing {
         repeated BucketRange bucket_ranges = 5;
 
         message BucketRange {
-            repeated double range = 1;
+            repeated double r = 1;
         }
     }
 
