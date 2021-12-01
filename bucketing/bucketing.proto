@@ -20,6 +20,11 @@ message Bucketing {
         string custom_id = 2;
         string type = 3;
         repeated BucketingVariationGroups variation_groups = 4;
+        repeated BucketRange bucket_ranges = 5;
+
+        message BucketRange {
+            repeated double range = 1;
+        }
     }
 
     message BucketingVariationGroups {
