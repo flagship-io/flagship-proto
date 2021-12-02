@@ -157,13 +157,22 @@ message Campaign {
     google.protobuf.StringValue id = 1;
 
     /**
+    * type
+    *
+    * Required
+    *
+    * The type of the campaign
+    */
+    google.protobuf.StringValue type = 2;
+
+    /**
     * variation group ID
     *
     * Required
     *
     * The ID of the variation group the visitor is affected to
     */
-    google.protobuf.StringValue variation_group_id = 2;
+    google.protobuf.StringValue variation_group_id = 3;
 
     /**
     * variation
@@ -172,7 +181,7 @@ message Campaign {
     *
     * The variation info the visitor is affected to
     */
-    Variation variation = 3;
+    Variation variation = 4;
 }
 
 message AccountSettings {
