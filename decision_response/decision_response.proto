@@ -192,7 +192,7 @@ message AccountSettings {
     *
     * True if experience continuity is activated in account settings
     */
-    bool enabledXPX = 1;
+    bool enabledXPC = 1;
 
     /**
     * One visitor one test
