@@ -3,6 +3,7 @@ package flagship.protobuf;
 
 import "decision_response/decision_response.proto";
 import "targeting/targeting.proto";
+import "google/protobuf/wrappers.proto";
 
 option go_package = "github.com/flagship-io/flagship-proto/bucketing";
 
@@ -17,10 +18,11 @@ message Bucketing {
 
     message BucketingCampaign {
         string id = 1;
-        string custom_id = 2;
-        string type = 3;
-        repeated BucketingVariationGroups variation_groups = 4;
-        repeated BucketRange bucket_ranges = 5;
+        string custom_id = 2 [deprecated = true];
+        google.protobuf.StringValue slug = 3;
+        string type = 4;
+        repeated BucketingVariationGroups variation_groups = 5;
+        repeated BucketRange bucket_ranges = 6;
 
         message BucketRange {
             repeated double r = 1;
