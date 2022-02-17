@@ -1,0 +1,51 @@
+syntax = "proto3";
+package flagship.protobuf;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/flagship-io/flagship-proto/event_request";
+
+message EventRequest {
+
+    enum EventType {
+        NULL = 0;
+        CONTEXT = 1;
+    }
+
+    /**
+    * client ID
+    *
+    * Required
+    *
+    * The client ID. 
+    */
+    google.protobuf.StringValue client_id = 1;
+
+    /**
+    * visitor ID
+    *
+    * Optional
+    *
+    * The custom visitor ID. 
+    */
+    google.protobuf.StringValue visitor_id = 2;
+
+    /**
+    * type
+    *
+    * required
+    *
+    * The event type 
+    */
+    EventType type = 3;
+
+    /**
+    * data
+    *
+    * Required
+    *
+    * The event data for the current event request
+    */
+    map<string, google.protobuf.Value> data = 4;
+}

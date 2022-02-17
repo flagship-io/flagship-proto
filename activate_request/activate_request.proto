@@ -1,0 +1,127 @@
+syntax = "proto3";
+package flagship.protobuf;
+
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/flagship-io/flagship-proto/activate_request";
+
+message ActivateRequest {
+    /**
+    * client ID
+    *
+    * Required
+    *
+    * The generated client ID. 
+    */
+    string cid = 1;
+
+    /**
+    * anonymous ID
+    *
+    * Optional
+    *
+    * The initial anonymous ID for the visitor. 
+    */
+    google.protobuf.StringValue aid = 2;
+
+    /**
+    * visitor ID
+    *
+    * Required
+    *
+    * The custom or decision generated visitor ID. 
+    */
+    string vid = 3;
+
+    /**
+    * variation ID
+    *
+    * Required
+    *
+    * The generated variation ID. 
+    */
+    string vaid = 4;
+
+    /**
+    * campaign ID
+    *
+    * Required
+    *
+    * The generated campaign ID. 
+    */
+    string caid = 5;
+
+    /**
+    * custom visitor ID
+    *
+    * Required
+    *
+    * The custom visitor ID set by the client
+    */
+    string cvid = 6;
+}
+
+message ActivateRequestMultipleInner {
+    /**
+    * visitor ID
+    *
+    * Required
+    *
+    * The custom or decision generated visitor ID. 
+    */
+    string visitor_id = 1;
+
+    /**
+    * anonymous ID
+    *
+    * Optional
+    *
+    * The initial anonymous ID for the visitor. 
+    */
+    google.protobuf.StringValue anonymous_id = 2;
+
+    /**
+    * variation ID
+    *
+    * The generated variation ID. 
+    */
+    string variation_id = 3;
+
+    /**
+    * variation group ID
+    *
+    * Required
+    *
+    * The generated variation group ID. 
+    */
+    string variation_group_id = 4;
+}
+
+message ActivateRequestMultiple {
+    /**
+    * environment ID
+    *
+    * Required
+    *
+    * The generated environment ID. 
+    */
+    string environment_id = 1;
+
+    /**
+    * visitor ID
+    *
+    * The custom or decision generated visitor ID. 
+    */
+    string visitor_id = 2;
+
+    /**
+    * anonymous ID
+    *
+    * Optional
+    *
+    * The initial anonymous ID for the visitor. 
+    */
+    google.protobuf.StringValue anonymous_id = 3;
+
+    repeated ActivateRequestMultipleInner activations = 4;
+}

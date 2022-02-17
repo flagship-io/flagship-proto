@@ -1,0 +1,68 @@
+syntax = "proto3";
+package flagship.protobuf;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/flagship-io/flagship-proto/flags";
+
+
+message FlagInfos {
+    /**
+    * flags map
+    *
+    * Required
+    *
+    * The map of flag name / flag information
+    */
+    map<string, FlagInfo> flags = 1;
+}
+
+message FlagInfo {
+    /**
+    * value
+    *
+    * Required
+    *
+    * The flag value
+    */
+    google.protobuf.Value value = 1;
+    
+    /**
+    * metadata
+    *
+    * Required
+    *
+    * The flag metadata
+    */
+    FlagMetadata metadata = 2;
+}
+
+message FlagMetadata {
+
+    /**
+    * campaign id
+    *
+    * Required
+    *
+    * The campaign id
+    */
+    string campaign_id = 1;
+
+    /**
+    * variation group id
+    *
+    * Required
+    *
+    * The variation group id
+    */
+    string variation__group_id = 2;
+
+    /**
+    * variation id
+    *
+    * Required
+    *
+    * The variation id
+    */
+    string variation_id = 3;
+}
