@@ -1,0 +1,109 @@
+syntax = "proto3";
+package flagship.protobuf;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/flagship-io/flagship-proto/decision_request";
+
+message DecisionRequest {
+
+    /**
+    * client ID
+    *
+    * Required
+    *
+    * The client ID. 
+    */
+    google.protobuf.StringValue client_id = 1;
+
+    /**
+    * campaign ID
+    *
+    * Optional
+    *
+    * The campaign ID. 
+    */
+    google.protobuf.StringValue campaign_id = 2;
+
+    /**
+    * visitor ID
+    *
+    * Optional
+    *
+    * The custom visitor ID. 
+    */
+    google.protobuf.StringValue visitor_id = 3;
+
+    /**
+    * anonymous ID
+    *
+    * Optional
+    *
+    * The initial anonymous ID for the visitor. 
+    */
+    google.protobuf.StringValue anonymous_id = 4;
+
+    /**
+    * decision group
+    *
+    * Optional
+    *
+    * The custom visitor group
+    */
+    google.protobuf.StringValue decision_group = 5;
+
+    /**
+    * trigger_hit
+    *
+    * Optional
+    *
+    * Trigger a campaign hit automatically
+    */
+    google.protobuf.BoolValue trigger_hit = 6;
+
+    /**
+    * activate
+    *
+    * Optional
+    *
+    * Trigger a campaign hit automatically for all targeted campaigns (synonymous of trigger_hit)
+    */
+    google.protobuf.BoolValue activate = 7;
+
+    /**
+    * format_response
+    *
+    * Optional
+    *
+    * Format HTTP response according to mime type of modification
+    */
+    google.protobuf.BoolValue format_response = 8;
+
+    /**
+    * Default redirect URL
+    *
+    * Required
+    *
+    * The URL to redirect to if no redirect URL specified
+    */
+    google.protobuf.StringValue default_redirect_url = 9;
+
+    /**
+    * context
+    *
+    * Required
+    *
+    * The context (user, app) for the current decision request
+    */
+    map<string, google.protobuf.Value> context = 10;
+
+    /**
+    * custom visitor ID
+    *
+    * Optional
+    *
+    * The custom customer ID (for visitor / customer reconciliation) . 
+    */
+    google.protobuf.StringValue custom_visitor_id = 11;
+}
