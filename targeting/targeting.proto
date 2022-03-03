@@ -50,6 +50,15 @@ message Targeting {
         * The targeting value
         */
         google.protobuf.Value value = 3;
+
+        /**
+        * provider
+        *
+        * Optional
+        *
+        * The integration provider key
+        */
+        google.protobuf.StringValue provider = 4;
     }
 
 
