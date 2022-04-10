@@ -20,6 +20,8 @@ message Targeting {
         CONTAINS = 8;
         NOT_CONTAINS = 9;
         GREATER_THAN = 10;
+        EXISTS = 11;
+        NOT_EXISTS = 12;
     }
 
     message InnerTargeting {
