@@ -106,4 +106,13 @@ message DecisionRequest {
     * The custom customer ID (for visitor / customer reconciliation) . 
     */
     google.protobuf.StringValue custom_visitor_id = 11;
+
+    /**
+    * visitor consent
+    *
+    * Optional
+    *
+    * Visitor consent or not (we don't send context keys to collect in case false). 
+    */
+    google.protobuf.BoolValue visitor_consent = 12;
 }
