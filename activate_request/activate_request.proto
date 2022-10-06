@@ -61,67 +61,13 @@ message ActivateRequest {
     string cvid = 6;
 }
 
-message ActivateRequestMultipleInner {
+message ActivateRequestBatch {
     /**
-    * visitor ID
+    * batch data
     *
     * Required
     *
-    * The custom or decision generated visitor ID. 
+    * The list of ActivateRequest. 
     */
-    string visitor_id = 1;
-
-    /**
-    * anonymous ID
-    *
-    * Optional
-    *
-    * The initial anonymous ID for the visitor. 
-    */
-    google.protobuf.StringValue anonymous_id = 2;
-
-    /**
-    * variation ID
-    *
-    * The generated variation ID. 
-    */
-    string variation_id = 3;
-
-    /**
-    * variation group ID
-    *
-    * Required
-    *
-    * The generated variation group ID. 
-    */
-    string variation_group_id = 4;
-}
-
-message ActivateRequestMultiple {
-    /**
-    * environment ID
-    *
-    * Required
-    *
-    * The generated environment ID. 
-    */
-    string environment_id = 1;
-
-    /**
-    * visitor ID
-    *
-    * The custom or decision generated visitor ID. 
-    */
-    string visitor_id = 2;
-
-    /**
-    * anonymous ID
-    *
-    * Optional
-    *
-    * The initial anonymous ID for the visitor. 
-    */
-    google.protobuf.StringValue anonymous_id = 3;
-
-    repeated ActivateRequestMultipleInner activations = 4;
+    repeated ActivateRequest batch = 1;
 }
