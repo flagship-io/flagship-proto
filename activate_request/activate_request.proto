@@ -63,11 +63,20 @@ message ActivateRequest {
 
 message ActivateRequestBatch {
     /**
+    * client ID
+    *
+    * Required
+    *
+    * The generated client ID. 
+    */
+    string cid = 1;
+
+    /**
     * batch data
     *
     * Required
     *
     * The list of ActivateRequest. 
     */
-    repeated ActivateRequest batch = 1;
+    repeated ActivateRequest batch = 2;
 }
