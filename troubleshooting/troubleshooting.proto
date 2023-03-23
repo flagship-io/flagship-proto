@@ -1,0 +1,13 @@
+syntax = "proto3";
+package flagship.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/flagship-io/flagship-proto/troubleshooting";
+
+message Troubleshooting {
+    google.protobuf.Timestamp start_date = 1;
+    google.protobuf.Timestamp end_date = 2;
+    string timezone = 3;
+    int32 traffic = 4;
+}

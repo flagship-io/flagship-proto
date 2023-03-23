@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 #### CONFIG ####
 ignore="^(bin|doc)/"
+gitrepo="github.com\/flagship-io\/flagship-proto"
 ####
 
 update_proto() {
-    proto_dir_clean=${1%/}
-    echo building $proto_dir_clean go files
-    docker run --rm -v $(pwd):$(pwd) -w $(pwd) \
-            namely/protoc:1.42_2 \
-            --go_out=$GOPATH/src/ \
-            -I$GOPATH/src/ \
-            -I. $proto_dir_clean/$proto_dir_clean.proto
+    protoname=${1%/}
+    rootpath=`echo $(pwd) | sed -e "s/$gitrepo//g"`
+    echo building $protoname go file
+    docker run --rm -v $(pwd):$(pwd) -w $(pwd) namely/protoc-all -f $protoname/$protoname.proto -l go -o $rootpath
 }
 
 

@@ -3,6 +3,7 @@ package flagship.protobuf;
 
 import "decision_response/decision_response.proto";
 import "targeting/targeting.proto";
+import "troubleshooting/troubleshooting.proto";
 import "google/protobuf/wrappers.proto";
 
 option go_package = "github.com/flagship-io/flagship-proto/bucketing";
@@ -14,6 +15,7 @@ message Bucketing {
         bool panic = 3;
         repeated BucketingCampaign campaigns = 4;
         AccountSettings accountSettings = 5;
+        flagship.protobuf.Troubleshooting troubleshooting = 6;
     }
 
     message BucketingCampaign {
