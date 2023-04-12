@@ -1,6 +1,7 @@
 syntax = "proto3";
 package flagship.protobuf;
 
+import "troubleshooting/troubleshooting.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/any.proto";
@@ -209,6 +210,15 @@ message AccountSettings {
     * True if one visitor one test is activated in account settings
     */
     bool enabled1V1T = 2;
+
+    /**
+    * Troubleshooting
+    * 
+    * Required
+    *
+    * Troubleshooting information configured in the account settings
+    */
+    flagship.protobuf.Troubleshooting troubleshooting = 3;
 }
 
 message DecisionResponse {
