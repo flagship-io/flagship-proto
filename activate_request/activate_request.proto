@@ -59,6 +59,15 @@ message ActivateRequest {
     * The custom visitor ID set by the client
     */
     string cvid = 6;
+
+    /**
+    * queue time
+    *
+    * Required
+    *
+    * The queue time to express the delay between the activation and when it was sent
+    */
+    int64 qt = 7;
 }
 
 message ActivateRequestBatch {
