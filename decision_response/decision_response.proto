@@ -154,6 +154,15 @@ message FullVariation {
     * True if variation is reference
     */
     bool reference = 5;
+
+    /**
+    * variation Name
+    *
+    * Required
+    *
+    * The name of the variation the visitor is affected to
+    */
+    google.protobuf.StringValue name = 6;
 }
 
 message Campaign {
