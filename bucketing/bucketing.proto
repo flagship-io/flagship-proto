@@ -18,12 +18,12 @@ message Bucketing {
 
     message BucketingCampaign {
         string id = 1;
-        string custom_id = 2 [deprecated = true];
-        google.protobuf.StringValue slug = 3;
-        string type = 4;
-        repeated BucketingVariationGroups variation_groups = 5;
-        repeated BucketRange bucket_ranges = 6;
-        string name = 7;
+        string name = 2;
+        string custom_id = 3 [deprecated = true];
+        google.protobuf.StringValue slug = 4;
+        string type = 5;
+        repeated BucketingVariationGroups variation_groups = 6;
+        repeated BucketRange bucket_ranges = 7;
 
         message BucketRange {
             repeated double r = 1;
@@ -32,9 +32,9 @@ message Bucketing {
 
     message BucketingVariationGroups {
         string id = 1;
-        Targeting targeting = 2;
-        repeated flagship.protobuf.FullVariation variations = 3;
-        string name = 4;
+        string name = 2;
+        Targeting targeting = 3;
+        repeated flagship.protobuf.FullVariation variations = 4;
     }
 
     message BucketingUpdateRequest {

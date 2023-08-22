@@ -49,31 +49,22 @@ message FlagMetadata {
     string campaign_id = 1;
 
     /**
-    * variation group id
-    *
-    * Required
-    *
-    * The variation group id
-    */
-    string variation__group_id = 2;
-
-    /**
-    * variation id
-    *
-    * Required
-    *
-    * The variation id
-    */
-    string variation_id = 3;
-
-    /**
     * campaign name
     *
     * Required
     *
     * The campaign name
     */
-    string campaign_name = 4;
+    string campaign_name = 2;
+
+    /**
+    * variation group id
+    *
+    * Required
+    *
+    * The variation group id
+    */
+    string variation_group_id = 3;
 
     /**
     * variation group name
@@ -82,7 +73,16 @@ message FlagMetadata {
     *
     * The variation group name
     */
-    string variation_group_name = 5;
+    string variation_group_name = 4;
+
+    /**
+    * variation id
+    *
+    * Required
+    *
+    * The variation id
+    */
+    string variation_id = 5;
 
     /**
     * variation name

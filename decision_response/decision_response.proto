@@ -82,13 +82,22 @@ message Variation {
     google.protobuf.StringValue id = 1;
 
     /**
+    * variation Name
+    *
+    * Required
+    *
+    * The name of the variation the visitor is affected to
+    */
+    google.protobuf.StringValue name = 2;
+
+    /**
     * modifications
     *
     * Required
     *
     * The modifications field for the variation
     */
-    Modifications modifications = 2;
+    Modifications modifications = 3;
 
     /**
     * is reference
@@ -97,16 +106,7 @@ message Variation {
     *
     * True if variation is reference
     */
-    bool reference = 3;
-
-    /**
-    * variation Name
-    *
-    * Required
-    *
-    * The name of the variation the visitor is affected to
-    */
-    google.protobuf.StringValue name = 4;
+    bool reference = 4;
 }
 
 message FullVariation {
@@ -120,13 +120,22 @@ message FullVariation {
     google.protobuf.StringValue id = 1;
 
     /**
+    * variation Name
+    *
+    * Required
+    *
+    * The name of the variation the visitor is affected to
+    */
+    google.protobuf.StringValue name = 2;
+
+    /**
     * modifications
     *
     * Required
     *
     * The modifications field for the variation
     */
-    Modifications modifications = 2;
+    Modifications modifications = 3;
 
     /**
     * Turing engine Options
@@ -135,7 +144,7 @@ message FullVariation {
     *
     * The turing engine options
     */
-    TuringEngineOptions te_options = 3;
+    TuringEngineOptions te_options = 4;
 
     /**
      * Allocation
@@ -144,7 +153,7 @@ message FullVariation {
      *
      * The allocation
      */
-    int32 allocation = 4;
+    int32 allocation = 5;
 
     /**
     * is reference
@@ -153,16 +162,7 @@ message FullVariation {
     *
     * True if variation is reference
     */
-    bool reference = 5;
-
-    /**
-    * variation Name
-    *
-    * Required
-    *
-    * The name of the variation the visitor is affected to
-    */
-    google.protobuf.StringValue name = 6;
+    bool reference = 6;
 }
 
 message Campaign {
@@ -176,11 +176,20 @@ message Campaign {
     google.protobuf.StringValue id = 1;
 
     /**
+    * campaign Name
+    *
+    * Required
+    *
+    * The name of the campaign the visitor is affected to
+    */
+    google.protobuf.StringValue name = 2;
+
+    /**
     * slug (custom id)
     *
     * The slug of the campaign the visitor is affected to
     */
-    google.protobuf.StringValue slug = 2;
+    google.protobuf.StringValue slug = 3;
 
     /**
     * type
@@ -189,7 +198,7 @@ message Campaign {
     *
     * The type of the campaign
     */
-    google.protobuf.StringValue type = 3;
+    google.protobuf.StringValue type = 4;
 
     /**
     * variation group ID
@@ -198,16 +207,7 @@ message Campaign {
     *
     * The ID of the variation group the visitor is affected to
     */
-    google.protobuf.StringValue variation_group_id = 4;
-
-    /**
-    * variation
-    *
-    * Required
-    *
-    * The variation info the visitor is affected to
-    */
-    Variation variation = 5;
+    google.protobuf.StringValue variation_group_id = 5;
 
     /**
     * variation group Name
@@ -219,13 +219,13 @@ message Campaign {
     google.protobuf.StringValue variation_group_name = 6;
 
     /**
-    * campaign Name
+    * variation
     *
     * Required
     *
-    * The name of the campaign the visitor is affected to
+    * The variation info the visitor is affected to
     */
-    google.protobuf.StringValue name = 7;
+    Variation variation = 7;
 }
 
 message AccountSettings {
