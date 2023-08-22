@@ -65,4 +65,31 @@ message FlagMetadata {
     * The variation id
     */
     string variation_id = 3;
+
+    /**
+    * campaign name
+    *
+    * Required
+    *
+    * The campaign name
+    */
+    string campaign_name = 4;
+
+    /**
+    * variation group name
+    *
+    * Required
+    *
+    * The variation group name
+    */
+    string variation_group_name = 5;
+
+    /**
+    * variation name
+    *
+    * Required
+    *
+    * The variation name
+    */
+    string variation_name = 6;
 }
