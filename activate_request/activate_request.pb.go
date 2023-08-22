@@ -68,10 +68,10 @@ type ActivateRequest struct {
 	//
 	// The custom visitor ID set by the client
 	Cvid string `protobuf:"bytes,6,opt,name=cvid,proto3" json:"cvid,omitempty"`
-	//*
+	// *
 	// queue time
 	//
-	// Required
+	// # Required
 	//
 	// The queue time to express the delay between the activation and when it was sent
 	Qt int64 `protobuf:"varint,7,opt,name=qt,proto3" json:"qt,omitempty"`

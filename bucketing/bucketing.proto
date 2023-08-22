@@ -23,6 +23,7 @@ message Bucketing {
         string type = 4;
         repeated BucketingVariationGroups variation_groups = 5;
         repeated BucketRange bucket_ranges = 6;
+        string name = 7;
 
         message BucketRange {
             repeated double r = 1;
@@ -33,6 +34,7 @@ message Bucketing {
         string id = 1;
         Targeting targeting = 2;
         repeated flagship.protobuf.FullVariation variations = 3;
+        string name = 4;
     }
 
     message BucketingUpdateRequest {

@@ -98,6 +98,15 @@ message Variation {
     * True if variation is reference
     */
     bool reference = 3;
+
+    /**
+    * variation Name
+    *
+    * Required
+    *
+    * The name of the variation the visitor is affected to
+    */
+    google.protobuf.StringValue name = 4;
 }
 
 message FullVariation {
@@ -190,6 +199,24 @@ message Campaign {
     * The variation info the visitor is affected to
     */
     Variation variation = 5;
+
+    /**
+    * variation group Name
+    *
+    * Required
+    *
+    * The name of the variation group the visitor is affected to
+    */
+    google.protobuf.StringValue variation_group_name = 6;
+
+    /**
+    * campaign Name
+    *
+    * Required
+    *
+    * The name of the campaign the visitor is affected to
+    */
+    google.protobuf.StringValue name = 7;
 }
 
 message AccountSettings {
