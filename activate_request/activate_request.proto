@@ -68,6 +68,15 @@ message ActivateRequest {
     * The queue time to express the delay between the activation and when it was sent
     */
     int64 qt = 7;
+
+    /**
+    * qa
+    *
+    * Optional
+    *
+    * The QA parameter to enable the QA mode for the data collect hit
+    */
+    bool qa = 8;
 }
 
 message ActivateRequestBatch {
