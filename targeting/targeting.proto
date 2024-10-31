@@ -22,6 +22,12 @@ message Targeting {
         GREATER_THAN = 10;
         EXISTS = 11;
         NOT_EXISTS = 12;
+        SEMVER_EQUALS = 13;
+        SEMVER_NOT_EQUALS = 14;
+        SEMVER_GREATER_THAN = 15;
+        SEMVER_LOWER_THAN = 16;
+        SEMVER_GREATER_THAN_OR_EQUALS = 17;
+        SEMVER_LOWER_THAN_OR_EQUALS = 18;
     }
 
     message InnerTargeting {
