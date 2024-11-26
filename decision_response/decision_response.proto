@@ -255,6 +255,24 @@ message AccountSettings {
     * Troubleshooting information configured in the account settings
     */
     flagship.protobuf.Troubleshooting troubleshooting = 3;
+
+    /**
+    * EmotionsAI collect
+    *
+    * Required
+    *
+    * True if EmotionsAI collect is activated
+    */
+    bool eaiCollectEnabled = 4;
+
+    /**
+    * EmotionsAI activation
+    *
+    * Required
+    *
+    * True if EmotionsAI is activated
+    */
+    bool eaiActivationEnabled = 5;
 }
 
 message DecisionResponse {
